@@ -4,31 +4,33 @@ import org.uma.mbd.mdNPI.npi.Npi;
 
 public class MainNPI {
     public static void main(String[] args) {
-        Npi npiA = new Npi();
-        Npi npiB = new Npi();
+        Npi cpi = new Npi();
 
-        // Resolver la expresión: 3 * (6 - 2) + 5 -> en NPI: 3 6 2 - * 5 +
-        npiA.entra(3);
-        npiA.entra(6);
-        npiA.entra(2);
-        npiA.resta();
-        npiA.multiplica();
-        npiA.entra(5);
-        npiA.suma();
-        System.out.println("3 * (6 - 2) + 5 -> en NPI: 3 6 2 - * 5 + = " + npiA.getResultado());
-
+        System.out.println("\033[34m **** SIMULADOR DE CALCULADORA CON NOTACION POLACA INVERSA **** \u001B[0m");
         // Resolver la expresión: 3 * (6 - 2) + (2 + 7) / 5 -> en NPI: 3 6 2 - * 5 2 7 + / +
-        npiB.entra(3);
-        npiB.entra(6);
-        npiB.entra(2);
-        npiB.resta();
-        npiB.multiplica();
-        npiB.entra(5);
-        npiB.entra(2);
-        npiB.entra(7);
-        npiB.suma();
-        npiB.divide();
-        npiB.suma();
-        System.out.println("3 * (6 - 2) + (2 + 7) / 5 -> en NPI: 3 6 2 - * 5 2 7 + / + = " + npiB.getResultado());
+        System.out.println("\033[33m Resolucion de 3 6 2 - * 5 2 7 + / + \u001B[0m");
+        cpi.entra(3);
+        System.out.println(cpi);
+        cpi.entra(6);
+        System.out.println(cpi);
+        cpi.entra(2);
+        System.out.println(cpi);
+        cpi.resta();
+        System.out.println(cpi);
+        cpi.multiplica();
+        System.out.println(cpi);
+        cpi.entra(5);
+        System.out.println(cpi);
+        cpi.entra(2);
+        System.out.println(cpi);
+        cpi.entra(7);
+        System.out.println(cpi);
+        cpi.suma();
+        System.out.println(cpi);
+        cpi.divide();
+        System.out.println(cpi);
+        cpi.suma();
+        System.out.println(cpi);
+        System.out.println("\033[32m Resultado = " + cpi.getResultado() + "\u001B[0m");
     }
 }

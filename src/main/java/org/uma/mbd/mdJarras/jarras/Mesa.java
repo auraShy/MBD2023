@@ -50,6 +50,6 @@ public class Mesa {
 
     @Override
     public String toString(){
-        return "A->"+ jA + "; B->"+ jB;
+        return "Jarra A->"+ jA + "; Jarra B->"+ jB;
     }
 }
