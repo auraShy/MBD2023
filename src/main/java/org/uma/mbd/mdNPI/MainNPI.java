@@ -6,9 +6,9 @@ public class MainNPI {
     public static void main(String[] args) {
         Npi cpi = new Npi();
 
-        System.out.println("\033[34m **** SIMULADOR DE CALCULADORA CON NOTACION POLACA INVERSA **** \u001B[0m");
+        System.out.println("**** SIMULADOR DE CALCULADORA CON NOTACION POLACA INVERSA ****");
         // Resolver la expresión: 3 * (6 - 2) + (2 + 7) / 5 -> en NPI: 3 6 2 - * 5 2 7 + / +
-        System.out.println("\033[33m Resolucion de 3 6 2 - * 5 2 7 + / + \u001B[0m");
+        System.out.println("Resolucion de 3 6 2 - * 5 2 7 + / + ");
         cpi.entra(3);
         System.out.println(cpi);
         cpi.entra(6);
@@ -31,6 +31,6 @@ public class MainNPI {
         System.out.println(cpi);
         cpi.suma();
         System.out.println(cpi);
-        System.out.println("\033[32m Resultado = " + cpi.getResultado() + "\u001B[0m");
+        System.out.println(" Resultado = " + cpi.getResultado());
     }
 }

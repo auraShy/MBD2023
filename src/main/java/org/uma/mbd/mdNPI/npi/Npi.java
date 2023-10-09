@@ -15,24 +15,28 @@ public class Npi {
         x= x+y;
         y = z;
         z = t;
+        t = 0;
     }
 
     public void resta(){
         x= y-x;
         y = z;
         z = t;
+        t = 0;
     }
 
     public void multiplica(){
         x = y*x;
         y = z;
         z = t;
+        t = 0;
     }
 
     public void divide(){
         x = x/y;
         y = z;
         z = t;
+        t = 0;
     }
 
     public double getResultado(){

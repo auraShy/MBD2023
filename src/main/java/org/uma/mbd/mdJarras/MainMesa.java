@@ -5,11 +5,11 @@ import org.uma.mbd.mdJarras.jarras.Mesa;
 public class MainMesa {
     public static void main(String[] args) {
 
-        //Se crea un objeto mesa con una jarra de 7L y otra de 6L
+        //Se crea un objeto mesa con una jarra de 7L y otra de 5L
         Mesa mesa = new Mesa(7,5);
 
         //Operaciones necesarias para que en una de las jarras quede 1 litro
-        System.out.println("\033[34m **** Conseguir 1L en una jarra **** \u001B[0m");
+        System.out.println("**** Conseguir 1L en una jarra ****");
         System.out.println("Estado inicial de las jarras:  " + mesa);
         mesa.llenaB();
         System.out.println("PASO 1:                        " + mesa);
@@ -26,7 +26,7 @@ public class MainMesa {
         mesa.llenaB();
         System.out.println("PASO 7:                        " + mesa);
         mesa.vuelcaBSobreA();
-        System.out.println("PASO FINAL:                    " + "\033[32m" + mesa + "\u001B[0m");
+        System.out.println("PASO FINAL:                    " + mesa);
 
     }
 }

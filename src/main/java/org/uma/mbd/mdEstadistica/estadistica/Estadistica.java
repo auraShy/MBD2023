@@ -23,7 +23,7 @@ public class Estadistica {
     }
 
     public double media(){
-        return numElementos/sumaX;
+        return sumaX/numElementos;
     }
 
     public double varianza(){
