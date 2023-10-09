@@ -13,21 +13,21 @@ public class Vector {
     }
 
     public Vector(Punto org, Punto ext){
-            double trasladoX = org.abscisa();
-            double trasladoY = org.ordenada();
+            double trasladoX = org.getX();
+            double trasladoY = org.getY();
             ext.trasladar(-1* trasladoX,-1* trasladoY);
             extremo = ext;
     }
 
     public Punto extremoDesde(Punto org){
-        double trasladoX =  org.abscisa()+this.getCompenenteX();
-        double trasladoY = org.ordenada()+this.getComponenteY();
+        double trasladoX =  org.getX()+this.getCompenenteX();
+        double trasladoY = org.getY()+this.getComponenteY();
         Punto ptoExtremo = new Punto(trasladoX,trasladoY);
         return ptoExtremo;
     }
-    public double getCompenenteX(){return extremo.abscisa();}
+    public double getCompenenteX(){return extremo.getX();}
 
-    public double getComponenteY(){return extremo.ordenada();}
+    public double getComponenteY(){return extremo.getY();}
 
     public double modulo(){
         return Math.sqrt(Math.pow(this.getCompenenteX(),2)+Math.pow(this.getComponenteY(),2));
@@ -47,10 +47,8 @@ public class Vector {
         }
     }
 
-
-
     @Override
     public String toString(){
-        return "V(" + extremo + ")";
+        return "V(" + extremo.getX() + "," + extremo.getY() + ")";
     }
 }

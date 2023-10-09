@@ -3,8 +3,12 @@ import org.uma.mbd.mdJarras.jarras.Jarra;
 
 public class MainJarra {
     public static void main(String[] args) {
-        Jarra j1 = new Jarra(7);
-        Jarra j2 = new Jarra(5);
+        // Mejor pq no tiene que compilar el programa entero cada vez
+        int c1 = Integer.parseInt(args[0]);
+        int c2 = Integer.parseInt(args[1]);
+
+        Jarra j1 = new Jarra(c1);
+        Jarra j2 = new Jarra(c2);
 
         j1.vacia();
         j2.vacia();
