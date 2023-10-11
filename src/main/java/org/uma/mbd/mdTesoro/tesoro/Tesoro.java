@@ -2,10 +2,11 @@ package org.uma.mbd.mdTesoro.tesoro;
 
 import org.uma.mbd.mdRectas.rectas.Punto;
 import org.uma.mbd.mdRectas.rectas.Recta;
+import org.uma.mbd.mdRectas.rectas.Vector;
 
 public class Tesoro {
     private Punto palmeraAmarilla, palmeraAzul, palmeraRosa;
-    private Punto estacaAmar, estacaAzul;
+    private Punto estacaAmarilla, estacaAzul;
     private Punto tesoro;
 
     public Tesoro(Punto palmAmar, Punto palmAzul, Punto palmRosa){
@@ -15,16 +16,45 @@ public class Tesoro {
     }
 
     private void calculaPosiciones(){
-        Recta r1 = new Recta(palmeraRosa,palmeraAmarilla);
-        Recta r2 = new Recta(palmeraRosa,palmeraAzul);
-        //numero de pasos desde palmera rosa a palmera amarilla
-        double npasos1 = palmeraRosa.distancia(palmeraAmarilla);
-        //numero de pasos desde palmera rosa a palmera azul
-        double npasos2 = palmeraRosa.distancia(palmeraAzul);
+        Vector v1 = new Vector(palmeraRosa,palmeraAmarilla);
+        Vector v2 = new Vector(palmeraRosa,palmeraAzul);
         // perpendicular que pasa por palmera amarilla
-        Recta r1perpe = r1.perpendicularPor(palmeraAmarilla);
+        Vector v1perpe = v1.ortogonal();
         // perpendicular que pasa por palmera azul
-        Recta r2perpe = r2.perpendicularPor(palmeraAzul);
+        Vector v2perpe = v2.ortogonal().ortogonal().ortogonal();
+        // Posiciones de las estacas
+        estacaAmarilla = v1perpe.extremoDesde(palmeraAmarilla);
+        estacaAzul = v2perpe.extremoDesde(palmeraAzul);
+        // Poscion del tesoro
+        tesoro = new Punto((estacaAmarilla.getX()+estacaAzul.getX())/2,(estacaAmarilla.getY()+estacaAzul.getY())/2);
 
+    }
+    public void  setPalmeraAmarilla(Punto p){
+        palmeraAmarilla = p;
+        calculaPosiciones();
+    }
+    public void setPalmeraAzul(Punto p){
+        palmeraAzul = p;
+        calculaPosiciones();
+    }
+
+    public void setPalmeraRosa(Punto p){
+        palmeraRosa = p;
+        calculaPosiciones();
+    }
+
+    public Punto getEstacaAmararilla() {
+        calculaPosiciones();
+        return estacaAmarilla;
+    }
+
+    public Punto getEstacaAzul(){
+        calculaPosiciones();
+        return estacaAzul;
+    }
+
+    public Punto getTesoro(){
+        calculaPosiciones();
+        return tesoro;
     }
 }
