@@ -13,10 +13,8 @@ public class Vector {
     }
 
     public Vector(Punto org, Punto ext){
-            double trasladoX = org.getX();
-            double trasladoY = org.getY();
-            ext.trasladar(-1* trasladoX,-1* trasladoY);
-            extremo = ext;
+            extremo.setX(ext.getX() - org.getX());
+            extremo.setY(ext.getY() - org.getY());
     }
 
     public Punto extremoDesde(Punto org){
