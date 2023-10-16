@@ -36,11 +36,7 @@ public class Recta {
 
     public boolean pasaPor(Punto p){
         Vector v = new Vector(p,this.pto);
-        if (this.direccion.paraleloA(v))
-            return true;
-
-        else
-            return false;
+        return this.direccion.paraleloA(v);
     }
 
     public Recta paralelaPor(Punto p){

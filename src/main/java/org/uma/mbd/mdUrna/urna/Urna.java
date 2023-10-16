@@ -1,6 +1,5 @@
 package org.uma.mbd.mdUrna.urna;
 
-
 import java.util.NoSuchElementException;
 import java.util.Random;
 
@@ -25,7 +24,7 @@ public class Urna {
         ColorBola BolaSacada = null;
         if (this.totalBolas() == 0)
             throw new NoSuchElementException("No hay bolas en la urna");
-        if(alea.nextInt(this.totalBolas()) <= blancas){
+        if(alea.nextInt(this.totalBolas()) < blancas){
             BolaSacada = ColorBola.Blanca;
             blancas --;
         }

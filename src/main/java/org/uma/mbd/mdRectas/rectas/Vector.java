@@ -1,20 +1,18 @@
 package org.uma.mbd.mdRectas.rectas;
 
 public class Vector {
-    private Punto extremo = new Punto();
+    private Punto extremo;
 
     public Vector(double x_ext, double y_ext){
-        extremo.setX(x_ext);
-        extremo.setY(y_ext);
+        extremo = new Punto(x_ext,y_ext);
     }
 
     public Vector(Punto ext){
-        extremo = ext;
+        this(ext.getX(), ext.getY());
     }
 
     public Vector(Punto org, Punto ext){
-            extremo.setX(ext.getX() - org.getX());
-            extremo.setY(ext.getY() - org.getY());
+        this((ext.getX() - org.getX()),(ext.getY() - org.getY()));
     }
 
     public Punto extremoDesde(Punto org){

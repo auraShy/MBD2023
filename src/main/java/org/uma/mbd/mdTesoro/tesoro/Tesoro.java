@@ -1,7 +1,6 @@
 package org.uma.mbd.mdTesoro.tesoro;
 
 import org.uma.mbd.mdRectas.rectas.Punto;
-import org.uma.mbd.mdRectas.rectas.Recta;
 import org.uma.mbd.mdRectas.rectas.Vector;
 
 public class Tesoro {
@@ -13,6 +12,7 @@ public class Tesoro {
         palmeraAmarilla = palmAmar;
         palmeraAzul = palmAzul;
         palmeraRosa = palmRosa;
+        calculaPosiciones();
     }
 
     private void calculaPosiciones(){
@@ -43,18 +43,15 @@ public class Tesoro {
         calculaPosiciones();
     }
 
-    public Punto getEstacaAmararilla() {
-        calculaPosiciones();
+    public Punto getEstacaAmarilla() {
         return estacaAmarilla;
     }
 
     public Punto getEstacaAzul(){
-        calculaPosiciones();
         return estacaAzul;
     }
 
     public Punto getTesoro(){
-        calculaPosiciones();
         return tesoro;
     }
 }

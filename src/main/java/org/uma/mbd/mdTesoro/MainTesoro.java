@@ -18,12 +18,12 @@ public class MainTesoro {
 
         Tesoro tes = new Tesoro(palmAmar, palmAzul, palmRosa);
 
-        Punto estacaAmarilla = tes.getEstacaAmararilla();
+        Punto estacaAmarilla = tes.getEstacaAmarilla();
         Punto estacaAzul = tes.getEstacaAzul();
         Punto tesoro = tes.getTesoro();
 
-        System.out.println(estacaAmarilla);
-        System.out.println(estacaAzul);
-        System.out.println(tesoro);
+        System.out.println("Estaca Amarilla: " + estacaAmarilla);
+        System.out.println("Estaca Azul: " + estacaAzul);
+        System.out.println("Tesoro: " + tesoro);
     }
 }
