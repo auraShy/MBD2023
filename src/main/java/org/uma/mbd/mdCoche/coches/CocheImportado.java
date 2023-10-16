@@ -2,9 +2,9 @@ package org.uma.mbd.mdCoche.coches;
 
 public class CocheImportado extends Coche{
     private double homologacion;
-    public CocheImportado(String name, double price, double homolo){
+    public CocheImportado(String name, double price, double homolog){
         super(name,price);
-        homologacion = homolo;
+        homologacion = homolog;
     }
 
     @Override
