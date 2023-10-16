@@ -1,7 +1,6 @@
-package org.uma.mbd.mdLibreriaV1L.libreria;
+package org.uma.mbd.mdLibreriaV2L.libreria;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Libreria {
@@ -30,7 +29,7 @@ public class Libreria {
 
     private int posicionLibro(String autor, String titulo){
         int pos = 0;
-        while(pos<libros.size() && !(autor.equals(libros.get(pos).getAutor()) && (titulo.equals(libros.get(pos).getTitulo()))))
+        while(pos<libros.size() && !(autor.equalsIgnoreCase(libros.get(pos).getAutor()) && (titulo.equalsIgnoreCase(libros.get(pos).getTitulo()))))
             pos++;
         return (pos == libros.size()) ? -1 : pos;
     }
