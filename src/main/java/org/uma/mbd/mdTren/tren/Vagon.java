@@ -8,5 +8,42 @@ public class Vagon {
         capacidad = cap;
     }
 
+    // DEVUELVE LAS TONELADAS QUE NO SE HAN PODIDO CARGAR EN EL VAGON
+    public int carga(int ton){
+        int sobrante = 0;
+        if (ton > capacidad) {
+            carga = carga + capacidad;
+            sobrante = ton - capacidad;
+        }
+        else{
+            carga = carga + ton;
+        }
+        return sobrante;
+    }
+
+    // DEVUELVE LAS TONELADAS QUE NO SE HAN PODIDO DESCARGAR DEL VAGON
+    public int descarga(int ton){
+        int falta = 0;
+        if (ton > carga){
+            falta = ton - carga;
+            carga = 0;
+        }
+        else
+            carga = carga - ton;
+        return falta;
+    }
+
+    public int getCarga(){
+        return carga;
+    }
+
+    public int getCapacidad(){
+        return capacidad;
+    }
+
+    @Override
+    public String toString(){
+        return "V(" + carga + "/" + capacidad + ")";
+    }
 
 }
