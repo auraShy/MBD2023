@@ -14,5 +14,9 @@ public class MainTren {
 
         Tren tren1 = new Tren(4,10);
         System.out.println(tren1);
+        tren1.carga(13);
+        System.out.println(tren1);
+        tren1.gasta(11);
+        System.out.println(tren1);
     }
 }
