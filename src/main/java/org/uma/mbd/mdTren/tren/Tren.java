@@ -40,11 +40,18 @@ public class Tren {
     }
 
     public void optimiza(){
+        int [] posiciones = new int[vagones.size()];
         for (int i = 0; i<vagones.size(); i++){
-            if (vagones.get(i).getCarga() == 0)
-                vagones.remove(i);
+            //if (vagones.get(i).getCarga() == 0) {
+                //posiciones[i] = 1;
+                vagones.removeIf(vagon -> vagon.getCarga() == 0);
+            }
         }
-    }
+        /*for (int k=0;k<posiciones.length-1;k++){
+            if(posiciones[k] == 1)
+                vagones.remove(k);
+        }*/
+
 
 
     @Override

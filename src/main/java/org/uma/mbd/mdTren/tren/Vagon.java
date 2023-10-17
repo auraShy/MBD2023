@@ -10,15 +10,18 @@ public class Vagon {
 
     // DEVUELVE LAS TONELADAS QUE NO SE HAN PODIDO CARGAR EN EL VAGON
     public int carga(int ton){
-        int sobrante = 0;
-        if (ton > capacidad) {
-            carga = carga + capacidad;
-            sobrante = ton - capacidad;
+        //int sobrante = 0;
+        int capacidadAct = capacidad - carga;
+
+        if (ton > capacidadAct) {
+            carga =  capacidad;
         }
+
         else{
             carga = carga + ton;
         }
-        return sobrante;
+        return ton - capacidadAct;
+
     }
 
     // DEVUELVE LAS TONELADAS QUE NO SE HAN PODIDO DESCARGAR DEL VAGON
