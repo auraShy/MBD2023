@@ -5,11 +5,10 @@ import java.util.List;
 
 public class Tren {
     private List<Vagon> vagones;
-    private int capVagones;
 
-    public Tren(int numVagones, int capVag){
+
+    public Tren(int numVagones, int capVagones){
         vagones = new ArrayList<>();
-        capVagones = capVag;
         for (int i=0; i<numVagones; i++){
             vagones.add(new Vagon(capVagones));
         }
@@ -22,7 +21,7 @@ public class Tren {
             ton = cargaRestante;
             i++;
             if (i==vagones.size() && ton>0){
-                vagones.add(new Vagon(capVagones));
+                vagones.add(new Vagon(vagones.get(i-1).getCapacidad()));
             }
         }
     }
