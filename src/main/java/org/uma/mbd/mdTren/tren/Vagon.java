@@ -18,7 +18,7 @@ public class Vagon {
         }
 
         else{
-            carga = carga + ton;
+            carga += ton;
         }
         return ton - capacidadAct;
 
