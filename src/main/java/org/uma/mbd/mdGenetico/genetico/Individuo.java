@@ -14,7 +14,8 @@ public class Individuo {
 	 *            Problema fst resolver.
 	 */
 	public Individuo(int longitud, Problema problema) {
-		// COMPLETAR
+		cromosoma = new Cromosoma(longitud,true);
+		fitness = problema.evalua(cromosoma);
 	}
 
 	/**
@@ -27,7 +28,8 @@ public class Individuo {
 	 *            Problema fst resolver.
 	 */
 	public Individuo(Cromosoma cromosoma, Problema problema) {
-		// COMPLETAR
+		this.cromosoma = new Cromosoma(cromosoma);
+		fitness = problema.evalua(this.cromosoma);
 	}
 
 	/**
@@ -45,7 +47,7 @@ public class Individuo {
 	 * @return Cromosoma copia del asociado al individuo.
 	 */
 	public Cromosoma getCromosoma() {
-		return cromosoma.copia();
+		return new Cromosoma(cromosoma);
 	}
 
 	public String toString() {

@@ -15,13 +15,13 @@ public class Vagon {
 
         if (ton > capacidadAct) {
             carga =  capacidad;
+            return ton - capacidadAct;
         }
 
         else{
             carga += ton;
         }
-        return ton - capacidadAct;
-
+        return 0;
     }
 
     // DEVUELVE LAS TONELADAS QUE NO SE HAN PODIDO DESCARGAR DEL VAGON

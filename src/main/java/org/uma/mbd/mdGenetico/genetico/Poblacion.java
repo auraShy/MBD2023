@@ -17,7 +17,13 @@ public class Poblacion {
 	 *             indicados no son válidos.
 	 */
 	public Poblacion(int tamaño, int longitud, Problema problema) {
-		// COMPLETAR
+		if(tamaño<=0 || longitud<=0){
+			throw new RuntimeException("Valores introducidos para tamaño y longitud no son validos");
+		}
+		individuos = new Individuo[tamaño];
+		for(int i=0; i<tamaño; i++){
+			individuos[i] = new Individuo(longitud,problema);
+		}
 	}
 
 	/**
@@ -35,8 +41,17 @@ public class Poblacion {
 	 * @return Individuo con mejor fitness.
 	 */
 	public Individuo mejorIndividuo() {
-		// COMPLETAR
-		return null;
+		int posMejor = 0;
+		double mejorFitness = individuos[posMejor].getFitness();
+
+		for (int i=0; i<getNumIndividuos(); i++){
+			if (mejorFitness<individuos[i].getFitness()){
+				mejorFitness = individuos[i].getFitness();
+				posMejor = i;
+			}
+
+		}
+		return getIndividuo(posMejor);
 	}
 
 	/**
@@ -49,8 +64,9 @@ public class Poblacion {
 	 *             si el índice está fuera del rango de valores válidos.
 	 */
 	public Individuo getIndividuo(int i) {
-		//COMPLETAR
-		return null;
+		if(i<0 || i>=getNumIndividuos())
+			throw new RuntimeException("No se puede hacer ese elemento");
+		return individuos[i];
 	}
 
 	/**
