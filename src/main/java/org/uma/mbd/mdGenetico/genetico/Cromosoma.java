@@ -84,7 +84,7 @@ public class Cromosoma {
 		if (probMutacion < 0 || probMutacion > 100)
 			throw new RuntimeException("Probabilidad de mutacion no es valida");
 			for (int gen : datos) {
-				if (gna.nextDouble() <= probMutacion / 100) {
+				if (gna.nextDouble() >= probMutacion / 100) {
 					if (gen == 1)
 						gen = 0;
 					else
