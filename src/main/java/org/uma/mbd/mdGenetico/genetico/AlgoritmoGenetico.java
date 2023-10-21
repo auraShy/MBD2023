@@ -37,7 +37,10 @@ public abstract class AlgoritmoGenetico {
 	 */
 	public AlgoritmoGenetico(int tPoblacion, int longCromosoma, int pasos,
 			double probMutacion, Problema problema) {
-		// COMPLETAR
+		poblacion = new Poblacion(tPoblacion,longCromosoma,problema);
+		this.pasos = pasos;
+		this.probMutacion = probMutacion;
+		this.problema = problema;
 	}
 
 	/**
@@ -59,11 +62,15 @@ public abstract class AlgoritmoGenetico {
 			do {
 				a2 = Cromosoma.gna.nextInt(poblacion.getNumIndividuos());
 			} while (a1 == a2);
-			// Seguro que a1 es distinto de a2
-
-			// COMPLETAR
+			// Seguro que a1 es distinto de
+				Individuo individuo1 = poblacion.getIndividuo(a1);
+				Individuo individuo2 = poblacion.getIndividuo(a2);
+				Cromosoma cromoRecomb = recombinar(individuo1.getCromosoma(),individuo2.getCromosoma());
+				cromoRecomb.mutar(probMutacion);
+				Individuo individuoHijo = new Individuo(cromoRecomb,problema);
+				this.poblacion.reemplaza(individuoHijo);
  		}
-		return null;
+		return this.poblacion.mejorIndividuo();
 	}
 
 	/**

@@ -27,8 +27,17 @@ public class AGUnPunto extends AlgoritmoGenetico {
 	 */
 	@Override
 	protected Cromosoma recombinar(Cromosoma cromosoma1, Cromosoma cromosoma2) {
-		// COMPLETAR
-		return null;
+		Cromosoma recombinado = new Cromosoma(cromosoma1.getLongitud(),false);
+		int z = Cromosoma.gna.nextInt(recombinado.getLongitud());
+
+		for (int i=0; i<recombinado.getLongitud();i++){
+			if(i<=z)
+				recombinado.setGen(i,cromosoma1.getGen(i));
+			else
+				recombinado.setGen(i,cromosoma2.getGen(i));
+		}
+
+		return recombinado;
 	}
 
 }

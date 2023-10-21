@@ -18,7 +18,7 @@ public class Poblacion {
 	 */
 	public Poblacion(int tamaño, int longitud, Problema problema) {
 		if(tamaño<=0 || longitud<=0){
-			throw new RuntimeException("Valores introducidos para tamaño y longitud no son validos");
+			throw new IllegalArgumentException("Valores introducidos para tamaño y longitud no son validos");
 		}
 		individuos = new Individuo[tamaño];
 		for(int i=0; i<tamaño; i++){
@@ -65,7 +65,7 @@ public class Poblacion {
 	 */
 	public Individuo getIndividuo(int i) {
 		if(i<0 || i>=getNumIndividuos())
-			throw new RuntimeException("No se puede hacer ese elemento");
+			throw new ArrayIndexOutOfBoundsException("No se puede hacer ese elemento");
 		return individuos[i];
 	}
 

@@ -30,7 +30,7 @@ public class Cromosoma {
 	 */
 	public Cromosoma(int longitud, boolean aleatorio) {
 		if (longitud < 0)
-			throw new RuntimeException("La longitud del cromosoma no puede ser negativa");
+			throw new ArrayIndexOutOfBoundsException("La longitud del cromosoma no puede ser negativa");
 		datos = new int[longitud];
 		for (int i = 0; i < longitud; i++) {
 			if (aleatorio)
@@ -56,8 +56,8 @@ public class Cromosoma {
 	 */
 	public int getGen(int i) {
 		if (i < 0 || i > datos.length)
-			throw new RuntimeException("El indice esta fuera del rango de valores validos");
-		return getGen(i);
+			throw new ArrayIndexOutOfBoundsException("El indice esta fuera del rango de valores validos");
+		return datos[i];
 	}
 
 	/**
@@ -82,9 +82,9 @@ public class Cromosoma {
 	 */
 	public void mutar(double probMutacion) {
 		if (probMutacion < 0 || probMutacion > 100)
-			throw new RuntimeException("Probabilidad de mutacion no es valida");
+			throw new IllegalArgumentException("Probabilidad de mutacion no es valida");
 			for (int gen : datos) {
-				if (gna.nextDouble() >= probMutacion / 100) {
+				if (gna.nextDouble() <= probMutacion / 100) {
 					if (gen == 1)
 						gen = 0;
 					else

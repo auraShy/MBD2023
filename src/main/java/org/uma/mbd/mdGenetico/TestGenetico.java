@@ -30,4 +30,4 @@ public class TestGenetico {
 		System.out.println("Solución 2:" + solucion2);
 	}
 }
- 
+
