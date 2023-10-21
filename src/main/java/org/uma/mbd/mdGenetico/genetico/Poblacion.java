@@ -79,7 +79,16 @@ public class Poblacion {
 	 *            este es mejor.
 	 */
 	public void reemplaza(Individuo ind) {
-		// COMPLETAR
+		int posPeor = 0;
+		double peorFitness = individuos[posPeor].getFitness();
+
+		for (int i=0; i<getNumIndividuos(); i++){
+			if (peorFitness>individuos[i].getFitness()){
+				peorFitness = individuos[i].getFitness();
+				posPeor= i;
+			}
+		}
+		individuos[posPeor] = ind;
 	}
 
 }
