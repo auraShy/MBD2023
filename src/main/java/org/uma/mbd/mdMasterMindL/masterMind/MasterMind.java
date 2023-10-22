@@ -42,10 +42,11 @@ public class MasterMind {
     }
 
     public Movimiento intento(String cifras) {
+        if (!validaCombinacion(cifras))
+            throw new MasterMindException("La secuencia de cifras no es valida");
+
         int colocadas = 0;
         int descolocadas = 0;
-        if (validaCombinacion(cifras) == false)
-            throw new MasterMindException("La secuencia de cifras no es valida");
 
         for (int i = 0; i < cifras.length(); i++) {
             if (combinacionSecreta.indexOf(cifras.charAt(i)) == i) {

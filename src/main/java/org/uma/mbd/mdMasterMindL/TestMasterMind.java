@@ -10,8 +10,8 @@ import java.util.Scanner;
 public class TestMasterMind {
 
 	public static void main(String[] args) throws MasterMindException {
-	//	MasterMind juego = new MasterMind();
-		MasterMindMemoria juego = new MasterMindMemoria();
+		MasterMind juego = new MasterMind();
+	//	MasterMindMemoria juego = new MasterMindMemoria();
 		
 		System.out.println(juego.getSecreto());
 		try (Scanner sc = new Scanner(System.in)) {
@@ -33,7 +33,7 @@ public class TestMasterMind {
 				}
 			}
 			System.out.println("Correcto en " + (intento - 1) + " intentos");
-			System.out.println("Movimientos :" + juego.Movimientos());
+			//System.out.println("Movimientos :" + juego.Movimientos());
 		}
 	}
 }
