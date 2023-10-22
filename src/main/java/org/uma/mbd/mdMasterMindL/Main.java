@@ -1,5 +1,7 @@
 package org.uma.mbd.mdMasterMindL;
 
+import org.uma.mbd.mdMasterMindL.masterMind.MasterMind;
+
 public class Main {
     public static void main(String[] args) {
         String combi = "";
@@ -15,5 +17,9 @@ public class Main {
 
         System.out.println("combi: " + combi + " Hashcode: " + combi.hashCode());
         System.out.println("cb: " + cb + " Hashcode: " + cb.hashCode());
+
+        MasterMind m1 = new MasterMind(3);
+
+
     }
 }
