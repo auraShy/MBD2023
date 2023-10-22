@@ -45,8 +45,8 @@ public class Poblacion {
 		double mejorFitness = individuos[posMejor].getFitness();
 
 		for (int i=0; i<getNumIndividuos(); i++){
-			if (mejorFitness<individuos[i].getFitness()){
-				mejorFitness = individuos[i].getFitness();
+			if (mejorFitness < getIndividuo(i).getFitness()){
+				mejorFitness = getIndividuo(i).getFitness();
 				posMejor = i;
 			}
 
@@ -79,16 +79,23 @@ public class Poblacion {
 	 *            este es mejor.
 	 */
 	public void reemplaza(Individuo ind) {
-		int posPeor = 0;
-		double peorFitness = individuos[posPeor].getFitness();
+		int peorPos = peorIndividuoPos();
+		if (ind.getFitness() > getIndividuo(peorPos).getFitness()) {
+			individuos[peorPos] = ind;
+		}
+	}
 
-		for (int i=0; i<getNumIndividuos(); i++){
-			if (peorFitness>individuos[i].getFitness()){
-				peorFitness = individuos[i].getFitness();
-				posPeor= i;
+	private int peorIndividuoPos() {
+		int peorPos = 0;
+		double peorFitness = getIndividuo(peorPos).getFitness();
+
+		for (int i=0; i<getNumIndividuos(); i++) {
+			if (getIndividuo(i).getFitness() < peorFitness) {
+				peorFitness = getIndividuo(i).getFitness();
+				peorPos = i;
 			}
 		}
-		individuos[posPeor] = ind;
+		return peorPos;
 	}
 
 }

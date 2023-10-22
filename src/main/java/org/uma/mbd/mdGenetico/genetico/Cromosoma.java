@@ -29,8 +29,8 @@ public class Cromosoma {
 	 * @throws RuntimeException si longitud no positiva.
 	 */
 	public Cromosoma(int longitud, boolean aleatorio) {
-		if (longitud < 0)
-			throw new ArrayIndexOutOfBoundsException("La longitud del cromosoma no puede ser negativa");
+		if (longitud <= 0)
+			throw new IllegalArgumentException("La longitud del cromosoma no puede ser negativa");
 		datos = new int[longitud];
 		for (int i = 0; i < longitud; i++) {
 			if (aleatorio)
@@ -41,9 +41,10 @@ public class Cromosoma {
 	}
 
 	/**
-	 * Cobstructor de copia
+	 * Constructor de copia
 	 */
 	public Cromosoma(Cromosoma cromosoma) {
+
 		this.datos = cromosoma.datos;
 	}
 
@@ -55,7 +56,7 @@ public class Cromosoma {
 	 * @throws RuntimeException si el índice está fuera del rango de valores válidos.
 	 */
 	public int getGen(int i) {
-		if (i < 0 || i > datos.length)
+		if (i < 0 || i >= datos.length)
 			throw new ArrayIndexOutOfBoundsException("El indice esta fuera del rango de valores validos");
 		return datos[i];
 	}
@@ -69,7 +70,7 @@ public class Cromosoma {
 	 *                          un valor válido.
 	 */
 	public void setGen(int i, int val) {
-		if ((i < 0 || i > datos.length) || (val != 0 && val != 1))
+		if ((i < 0 || i >= datos.length) || (val != 0 && val != 1))
 			throw new RuntimeException("El indice esta fuera del rango del array o los valores no son validos");
 		datos[i] = val;
 	}
