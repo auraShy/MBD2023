@@ -65,7 +65,7 @@ public class Poblacion {
 	 */
 	public Individuo getIndividuo(int i) {
 		if(i<0 || i>=getNumIndividuos())
-			throw new ArrayIndexOutOfBoundsException("No se puede hacer ese elemento");
+			throw new ArrayIndexOutOfBoundsException("No se puede acceder a ese elemento");
 		return individuos[i];
 	}
 
@@ -89,7 +89,7 @@ public class Poblacion {
 		int peorPos = 0;
 		double peorFitness = getIndividuo(peorPos).getFitness();
 
-		for (int i=0; i<getNumIndividuos(); i++) {
+		for (int i=1; i<getNumIndividuos(); i++) {
 			if (getIndividuo(i).getFitness() < peorFitness) {
 				peorFitness = getIndividuo(i).getFitness();
 				peorPos = i;
