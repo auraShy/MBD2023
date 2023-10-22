@@ -45,7 +45,9 @@ public class Cromosoma {
 	 */
 	public Cromosoma(Cromosoma cromosoma) {
 
-		this.datos = cromosoma.datos;
+		//this.datos = cromosoma.datos;
+		datos = new int[cromosoma.getLongitud()];
+		System.arraycopy(cromosoma.datos, 0, datos, 0, cromosoma.getLongitud());
 	}
 
 	/**
