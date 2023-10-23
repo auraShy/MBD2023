@@ -29,6 +29,7 @@ public class Bus {
         return matricula;
     }
 
+    @Override
     public boolean equals(Object o) {
         return (o instanceof Bus b)
                 && (codBus == b.codBus)
@@ -36,6 +37,7 @@ public class Bus {
                 && (b.matricula.equalsIgnoreCase(matricula));
     }
 
+    @Override
     public int hashCode(){
         return Objects.hash(codBus,codLinea,matricula.toLowerCase());
     }

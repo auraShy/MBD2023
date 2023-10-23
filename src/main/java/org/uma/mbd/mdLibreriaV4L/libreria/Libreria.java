@@ -1,4 +1,4 @@
-package org.uma.mbd.mdLibreriaV3L.libreria;
+package org.uma.mbd.mdLibreriaV4L.libreria;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ public class Libreria {
     }
 
     protected void addLibro(Libro libro) {
-        int pos = libros.indexOf(libro); //POSIBLE GRACIAS A LA REDEFINICION DE EQUALS
+        int pos = posicionLibro(libro.getAutor(), libro.getTitulo());
         if (pos < 0) {
             // El libro no esta
             libros.add(libro);
@@ -35,19 +35,20 @@ public class Libreria {
     }
 
     public void remLibro(String autor, String titulo){
-        Libro libro = new Libro(autor,titulo,0);
-            libros.remove(libro);
+        int pos = posicionLibro(autor, titulo);
+        if(pos >= 0)
+        {
+            libros.remove(pos);
+        }
     }
 
     public double getPrecioBase(String autor, String titulo){
-        Libro libro = new Libro(autor,titulo,0);
-        int pos = libros.indexOf(libro);
+        int pos = posicionLibro(autor, titulo);
         return pos >= 0 ? libros.get(pos).getPrecioBase() : 0;
     }
 
     public double getPrecioFinal(String autor, String titulo){
-        Libro libro = new Libro(autor,titulo,0);
-        int pos = libros.indexOf(libro);
+        int pos = posicionLibro(autor, titulo);
         return pos >= 0 ? libros.get(pos).getPrecioFinal() : 0;
     }
 
