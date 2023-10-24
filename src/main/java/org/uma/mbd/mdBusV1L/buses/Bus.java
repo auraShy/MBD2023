@@ -33,13 +33,12 @@ public class Bus {
     public boolean equals(Object o) {
         return (o instanceof Bus b)
                 && (codBus == b.codBus)
-                && (codLinea == b.codLinea)
                 && (b.matricula.equalsIgnoreCase(matricula));
     }
 
     @Override
     public int hashCode(){
-        return Objects.hash(codBus,codLinea,matricula.toLowerCase());
+        return Objects.hash(codBus,matricula.toLowerCase());
     }
 
     @Override
