@@ -15,6 +15,6 @@ public class EnMatricula implements Criterio{
 
     @Override
     public String toString(){
-        return "Autobuse cuya matricula contiene " + dato;
+        return "Autobuses cuya matricula contiene " + dato;
     }
 }

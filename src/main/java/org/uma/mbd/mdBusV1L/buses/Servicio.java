@@ -53,6 +53,7 @@ public class Servicio {
 
     public void guarda(String file, Criterio criterio) throws FileNotFoundException {
         try(PrintWriter pw = new PrintWriter(file)){
+            System.out.println(criterio);
             guarda(pw,criterio);
         }
     }
