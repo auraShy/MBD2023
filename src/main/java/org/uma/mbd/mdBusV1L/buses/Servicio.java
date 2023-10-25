@@ -1,8 +1,9 @@
 package org.uma.mbd.mdBusV1L.buses;
 
-import org.uma.mbd.mdTestL.tests.Test;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
@@ -28,7 +29,7 @@ public class Servicio {
         Path fichero = Path.of(file);
         for (String linea : Files.readAllLines(fichero)){
                 try(Scanner sc = new Scanner(linea);){
-                    sc.useDelimiter("[,]+");
+                    sc.useDelimiter(",");
                     int codBus = sc.nextInt();
                     String matricula = sc.next();
                     int codLinea = sc.nextInt();
@@ -44,4 +45,22 @@ public class Servicio {
             }
     }
 
+    public List<Bus> filtra(Criterio criterio){
+        return buses.stream()
+                .filter(bus -> criterio.esSeleccionable(bus))
+                .toList();
+    }
+
+    public void guarda(String file, Criterio criterio) throws FileNotFoundException {
+        try(PrintWriter pw = new PrintWriter(file)){
+            guarda(pw,criterio);
+        }
+    }
+
+    public void guarda(PrintWriter pw, Criterio c){
+        List<Bus> busesFilt= filtra(c);
+        for (Bus line : busesFilt){
+            pw.println(line.toString());
+        }
+    }
 }

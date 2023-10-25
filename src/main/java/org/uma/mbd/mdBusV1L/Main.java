@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Servicio s1 = new Servicio("Malaga");
         System.out.println(s1.getCiudad());
-        s1.leeBuses("C:\\Users\\david\\Desktop\\Master\\Modulo1_poo\\JavaApps\\src\\main\\java\\org\\uma\\mbd\\mdBusV1L\\buses.txt");
+        s1.leeBuses("recursos\\mdBusV1\\buses.txt");
         System.out.println(s1.getBuses());
     }
 }
