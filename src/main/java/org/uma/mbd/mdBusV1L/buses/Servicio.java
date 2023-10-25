@@ -32,11 +32,13 @@ public class Servicio {
                     int codBus = sc.nextInt();
                     String matricula = sc.next();
                     int codLinea = sc.nextInt();
-                    buses.addLast(new Bus(codBus, matricula));
+                    Bus busAdded = new Bus(codBus, matricula);
+                    busAdded.setCodLinea(codLinea);
+                    buses.addLast(busAdded);
                 }catch (InputMismatchException e) {
-                    System.err.println("Faltan datos en " + linea);
+                    System.err.println("Error en dato numérico en " + linea);
                 } catch (NoSuchElementException e) {
-                    System.err.println("Numero erroneo en " + linea);
+                    System.err.println("Error, faltan datos en " + linea);
                 }
 
             }
