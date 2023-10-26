@@ -29,13 +29,13 @@ public class Mundo {
                 paises.addLast(new Pais(nombre,continente,altura));
             }catch (InputMismatchException e) {
                 System.err.println("Error en dato numérico en " + line);
-            }catch (NumberFormatException e) {
+            }catch (NoSuchElementException e) {
                 System.err.println("Error, faltan datos en " + line);
             }
         }
     }
 
-   /* private void leeScan(String line){
+    /*private void leeScan(String line){
         try(Scanner sc = new Scanner(line);){
             sc.useDelimiter(",");
             String nombre = sc.next();
