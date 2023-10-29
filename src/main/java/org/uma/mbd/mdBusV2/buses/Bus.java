@@ -1,8 +1,8 @@
-package org.uma.mbd.mdBusV2L.buses;
+package org.uma.mbd.mdBusV2.buses;
 
 import java.util.Objects;
 
-public class Bus {
+public class Bus implements Comparable<Bus>{
     private int codBus;
     private int codLinea;
     private String matricula;
@@ -44,5 +44,16 @@ public class Bus {
     @Override
     public String toString(){
         return "Bus(" + codBus + "," + matricula + "," + codLinea + ")";
+    }
+
+    @Override
+    public int compareTo(Bus bus){
+        int resultado = matricula.compareTo(bus.matricula);
+        // 0 = ambas matriculas iguales.
+        // <0 = argumento es lexiograficamente mayor que la variable
+        // >0 = argumento es lexiograficamente menor que la variable
+        if (resultado == 0)
+            resultado = Integer.compare(codBus,bus.codBus);
+        return resultado;
     }
 }

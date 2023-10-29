@@ -1,5 +1,8 @@
-package org.uma.mbd.mdBusV2L.buses;
+package org.uma.mbd.mdBusV2.buses;
 
+
+import org.uma.mbd.mdBusV2.buses.Bus;
+import org.uma.mbd.mdBusV2.buses.Criterio;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -7,6 +10,7 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Servicio {
     private String ciudad;
@@ -45,21 +49,23 @@ public class Servicio {
             }
     }
 
-    public List<Bus> filtra(Criterio criterio){
+    public Set<Bus> filtra(Criterio criterio, Comparator<Bus> cb){
         return buses.stream()
                 .filter(bus -> criterio.esSeleccionable(bus))
-                .toList();
+                .sorted(cb)
+                //LinkedHashSet: Los elementos del conjunto se encuentran en el orden que se insertan
+                .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
-    public void guarda(String file, Criterio criterio) throws FileNotFoundException {
+    public void guarda(String file, Criterio criterio, Comparator<Bus> cb) throws FileNotFoundException {
         try(PrintWriter pw = new PrintWriter(file)){
             System.out.println(criterio);
-            guarda(pw,criterio);
+            guarda(pw,criterio,cb);
         }
     }
 
-    public void guarda(PrintWriter pw, Criterio c){
-        List<Bus> busesFilt= filtra(c);
+    public void guarda(PrintWriter pw, Criterio c, Comparator <Bus> cb){
+        Set<Bus> busesFilt= filtra(c,cb);
         for (Bus line : busesFilt){
             pw.println(line.toString());
         }

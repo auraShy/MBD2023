@@ -1,4 +1,4 @@
-package org.uma.mbd.mdBusV2L.buses;
+package org.uma.mbd.mdBusV2.buses;
 
 public class EnMatricula implements Criterio {
 
