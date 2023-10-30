@@ -19,7 +19,7 @@ public class MainPrueba {
             Comparator<Bus> cbon = Comparator.naturalOrder();
 
             Set<Bus> set = emt.filtra(new PorLinea(21), cbon);
-            //System.out.println(set);
+            System.out.println(set);
 
 
 

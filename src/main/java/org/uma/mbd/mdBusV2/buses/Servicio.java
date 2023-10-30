@@ -54,7 +54,7 @@ public class Servicio {
                 .filter(bus -> criterio.esSeleccionable(bus))
                 .sorted(cb)
                 //LinkedHashSet: Los elementos del conjunto se encuentran en el orden que se insertan
-                .collect(Collectors.toCollection(LinkedHashSet::new));
+                .collect(Collectors.toCollection(TreeSet::new));
     }
 
     public void guarda(String file, Criterio criterio, Comparator<Bus> cb) throws FileNotFoundException {
