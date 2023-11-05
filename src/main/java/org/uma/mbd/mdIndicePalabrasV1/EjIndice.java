@@ -11,8 +11,8 @@ public class EjIndice {
                         "la", "NO", "pero", "Por", "porque", "qué",
                         "si", "tenía", "una", "y");
         //Indice cp = new Indice1aLinea();
-        Indice cp = new IndiceLineas();
-        // Indice cp = new IndicePosicionesEnLineas();
+        //Indice cp = new IndiceLineas();
+         Indice cp = new IndicePosicionesEnLineas();
         cp.agregarLinea("Guerra tenía una jarra y Parra tenía una perra, "
                 + "pero la perra de Parra rompió la jarra de Guerra.");
         cp.agregarLinea("Guerra pegó con la porra a la perra de Parra. "

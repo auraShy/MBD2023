@@ -13,7 +13,7 @@ record Pareja(Persona uno, Persona otro){
 
     @Override
     public int hashCode() {
-        return Objects.hash(uno.getNombre().toLowerCase(), otro.getNombre().toLowerCase());
+        return Objects.hash(uno, otro) + Objects.hash(otro, uno);
     }
 }
 

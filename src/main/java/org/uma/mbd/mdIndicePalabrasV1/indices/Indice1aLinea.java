@@ -46,7 +46,7 @@ public class Indice1aLinea extends Indice{
     @Override
     public void presentarIndiceConsola() {
         for (String key : palabras.keySet()) {
-            // %-10s un ancho de 30 caracteres y alineada a la izquierda:
+            // %-30s un ancho de 30 caracteres y alineada a la izquierda:
             System.out.printf("%-30s%d\n",key,palabras.get(key));
         }
     }

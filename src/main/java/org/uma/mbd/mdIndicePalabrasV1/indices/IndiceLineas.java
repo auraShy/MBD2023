@@ -39,8 +39,8 @@ public class IndiceLineas extends Indice{
     public void presentarIndiceConsola() {
         for (String key : palabras.keySet()) {
             System.out.printf("%-30s", key);
-            for (int linea : palabras.get(key)) {
-                System.out.printf("%d.", linea);
+            for (int line : palabras.get(key)) {
+                System.out.printf("%d.", line);
             }
             System.out.println();
         }
