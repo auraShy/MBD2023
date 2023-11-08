@@ -37,13 +37,12 @@ public class Token implements Comparable<Token>{
     }
 
     public static Map<Partido,Integer> generaResultados(Set<Token> tks){
-        Map<Partido,Integer> resultado = new TreeMap<>();
-
+        Map<Partido,Integer> resultado = new HashMap<>();
         for(Token tk : tks){
              int nEsc = (int) tks.stream()
                     .filter(token -> token.partido.getNombre().equals(tk.partido.getNombre()))
                      .count();
-            resultado.computeIfAbsent(tk.partido,key -> nEsc);
+            resultado.putIfAbsent(tk.partido,nEsc);
         }
         return resultado;
     }
