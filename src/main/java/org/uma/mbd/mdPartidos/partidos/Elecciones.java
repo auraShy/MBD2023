@@ -18,7 +18,11 @@ public class Elecciones {
             String nombrePartido = sc.next();
             int nVotos = sc.nextInt();
             return new Partido(nombrePartido,nVotos);
-        } // faltan excepciones
+        } catch(InputMismatchException e) {
+            throw new EleccionesException("El número de votos no es un numero en: " + dato);
+        } catch(NoSuchElementException e) {
+            throw new EleccionesException("Faltan datos en: " + dato);
+        }
     }
 
     public void leeDatos(String [] datos){
