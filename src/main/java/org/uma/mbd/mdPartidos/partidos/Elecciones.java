@@ -43,13 +43,18 @@ public class Elecciones {
 
     public void presentaResultados(String nombreFichero, Map<Partido,Integer> map) throws FileNotFoundException{
         try(PrintWriter pw = new PrintWriter(nombreFichero)){
-            for (Partido partido : partidos){
-                pw.printf("%s : %d, ", partido.getNombre(),partido.getVotos());
-                if(!map.containsKey(partido))
-                    pw.println("Sin representacion");
-                else
-                    pw.println(map.get(partido));
-            }
+            presentaResultados(pw,map);
+        }
+
+    }
+
+    public void presentaResultados(PrintWriter pw, Map<Partido,Integer> map){
+        for (Partido partido : partidos){
+            pw.printf("%s : %d, ", partido.getNombre(),partido.getVotos());
+            if(!map.containsKey(partido))
+                pw.println("Sin representacion");
+            else
+                pw.println(map.get(partido));
         }
     }
 }

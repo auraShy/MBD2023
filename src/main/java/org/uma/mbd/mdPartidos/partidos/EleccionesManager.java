@@ -3,6 +3,7 @@ package org.uma.mbd.mdPartidos.partidos;
 import javax.imageio.IIOException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Map;
 
 public class EleccionesManager {
@@ -73,15 +74,8 @@ public class EleccionesManager {
             elecciones.presentaResultados(fSalida, resultados);
         }
         if (consola) {
-            for (Partido partido : resultados.keySet()) {
-                System.out.printf("%s : %d, ", partido.getNombre(), partido.getVotos());
-                int esc = resultados.get(partido);
-                if(esc == 0) {
-                    System.out.println("Sin representación");
-                } else {
-                    System.out.println(esc);
-                }
-            }
+            PrintWriter pw = new PrintWriter(System.out,true);
+            elecciones.presentaResultados(pw,resultados);
         }
 
     }
