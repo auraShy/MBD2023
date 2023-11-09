@@ -1,8 +1,5 @@
 package org.uma.mbd.mdPartidos.partidos;
 
-import org.uma.mbd.mdAlturasV2.alturas.Pais;
-import org.uma.mbd.mdBusV2.buses.Bus;
-
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;

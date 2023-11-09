@@ -24,7 +24,7 @@ public class Elecciones {
     public void leeDatos(String [] datos){
         partidos = new ArrayList<>();
         List<Partido> datosPart = Arrays.stream(datos)
-                .map(d -> stringToPartido(d))
+                .map(Elecciones::stringToPartido)
                 .toList();
         partidos.addAll(datosPart);
     }
@@ -43,13 +43,12 @@ public class Elecciones {
 
     public void presentaResultados(String nombreFichero, Map<Partido,Integer> map) throws FileNotFoundException{
         try(PrintWriter pw = new PrintWriter(nombreFichero)){
-            for (Partido partido : map.keySet()){
+            for (Partido partido : partidos){
                 pw.printf("%s : %d, ", partido.getNombre(),partido.getVotos());
-                int escano = map.get(partido);
-                if(escano == 0)
+                if(!map.containsKey(partido))
                     pw.println("Sin representacion");
                 else
-                    pw.println(escano);
+                    pw.println(map.get(partido));
             }
         }
     }
